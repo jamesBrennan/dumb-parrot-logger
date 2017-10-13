@@ -70,3 +70,8 @@ fetch("http://localhost:2040", {
 ```zsh
 dumb-parrot debug { user: 'joe', action: 'add task' }
 ```
+
+## Why?
+
+This package was created to enable logging by client-side javascript executed
+in a headless web browser during integration tests (Rails system tests). 
