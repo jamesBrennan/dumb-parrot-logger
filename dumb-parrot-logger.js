@@ -43,4 +43,4 @@ app.post('/:logLevel', function(req, res) {
   res.sendStatus(201);
 });
 
-app.listen('2040');
+app.listen('2040', () => { log.info('started') });

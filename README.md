@@ -12,7 +12,7 @@ $ npm install dumb-parrot-logger
 
 ## Examples
 
-  Start server:
+  Start server (assuming `./node_modules/.bin` is on your $PATH):
 
 ```zsh
 // defaults to port 2040
