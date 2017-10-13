@@ -9,6 +9,9 @@
   "files": [
     "dumb-parrot-logger.js"
   ],
+  "bin": {
+    "dumb-parrot": "./bin/dumb-parrot"
+  },
   "engines": {
     "node": ">=6.4.0"
   },

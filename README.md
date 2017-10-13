@@ -16,7 +16,7 @@ $ npm install dumb-parrot-logger
 
 ```zsh
 // defaults to port 2040
-npm start dumb-parrot-logger
+dumb-parrot
 ```
 
   Send a request:
@@ -74,4 +74,4 @@ dumb-parrot debug { user: 'joe', action: 'add task' }
 ## Why?
 
 This package was created to enable logging by client-side javascript executed
-in a headless web browser during integration tests (Rails system tests). 
+in a headless web browser during integration tests (Rails system tests).
