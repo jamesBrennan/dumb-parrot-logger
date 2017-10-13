@@ -1,6 +1,6 @@
 {
   "name": "dumb-parrot-logger",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "HTTP service that prints requests to STDOUT",
   "main": "dumb-parrot-logger.js",
   "author": "James Brennan (https://github.com/jamesBrennan)",
