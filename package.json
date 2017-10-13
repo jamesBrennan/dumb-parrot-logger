@@ -6,9 +6,6 @@
   "author": "James Brennan (https://github.com/jamesBrennan)",
   "repository": "https://github.com/jamesBrennan/dumb-parrot-logger",
   "license": "MIT",
-  "files": [
-    "dumb-parrot-logger.js"
-  ],
   "bin": {
     "dumb-parrot": "./bin/dumb-parrot"
   },
