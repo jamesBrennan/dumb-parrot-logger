@@ -20,9 +20,9 @@ describe('dumb parrot', () => {
 
   it('accepts GET /', (done) => {
     request(server)
-      .get('/')
-      .expect(200, 'The parrot is listening')
-      .end(done)
+    .get('/')
+    .expect(200, 'The parrot is listening')
+    .end(done)
   })
 
   it('accepts POST /', (done) => {
@@ -33,7 +33,9 @@ describe('dumb parrot', () => {
     it('defaults to "debug"', () => {
       sinon.spy(logger, 'debug')
 
-      return post('/', body)(server).then(() => {
+      return post('/', body)(server)
+      .expect(201)
+      .then(() => {
         sinon.assert.calledWith(logger.debug, body)
         logger.debug.restore()
       })
@@ -42,7 +44,9 @@ describe('dumb parrot', () => {
     it('matches POST /debug', () => {
       sinon.spy(logger, 'debug')
 
-      return post('/debug', body)(server).then(() => {
+      return post('/debug', body)(server)
+      .expect(201)
+      .then(() => {
         sinon.assert.calledWith(logger.debug, body)
         logger.debug.restore()
       })
@@ -51,7 +55,9 @@ describe('dumb parrot', () => {
     it('matches POST /info', () => {
       sinon.spy(logger, 'info')
 
-      return post('/info', body)(server).then(() => {
+      return post('/info', body)(server)
+      .expect(201)
+      .then(() => {
         sinon.assert.calledWith(logger.info, body)
         logger.info.restore()
       })
@@ -60,7 +66,9 @@ describe('dumb parrot', () => {
     it('matches POST /warn', () => {
       sinon.spy(logger, 'warn')
 
-      return post('/warn', body)(server).then(() => {
+      return post('/warn', body)(server)
+      .expect(201)
+      .then(() => {
         sinon.assert.calledWith(logger.warn, body)
         logger.warn.restore()
       })
@@ -69,7 +77,9 @@ describe('dumb parrot', () => {
     it('matches POST /error', () => {
       sinon.spy(logger, 'error')
 
-      return post('/error', body)(server).then(() => {
+      return post('/error', body)(server)
+      .expect(201)
+      .then(() => {
         sinon.assert.calledWith(logger.error, body)
         logger.error.restore()
       })
