@@ -23,7 +23,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.get('/', function (req, res) {
-  res.send('Dev logging server')
+  res.send('The parrot is listening')
 })
 
 app.post('/', function (req, res) {
@@ -43,4 +43,6 @@ app.post('/:logLevel', function (req, res) {
   res.sendStatus(201)
 })
 
-app.listen('2040', () => { log.info('started') })
+const server = app.listen('2040', () => { log.info('started') })
+
+module.exports = server
