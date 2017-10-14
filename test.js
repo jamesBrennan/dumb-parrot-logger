@@ -6,7 +6,7 @@ describe('dumb parrot', () => {
   let server
 
   beforeEach(() => {
-    server = require('./dumb-parrot-logger')
+    server = require('./dumb-parrot-logger')()
   })
 
   afterEach(() => {

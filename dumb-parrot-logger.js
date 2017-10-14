@@ -18,31 +18,37 @@ function isValidLogLevel (value) {
   return LOG_LEVELS.some(level => level === value)
 }
 
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+const defaults = {
+  logger: log
+}
 
-app.get('/', function (req, res) {
-  res.send('The parrot is listening')
-})
+function server ({logger} = defaults) {
+  app.use(cors())
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({ extended: true }))
 
-app.post('/', function (req, res) {
-  log.log(req.body)
-  res.sendStatus(201)
-})
+  app.get('/', function (req, res) {
+    res.send('The parrot is listening')
+  })
 
-app.post('/:logLevel', function (req, res) {
-  let { logLevel } = req.params
-  if (!isValidLogLevel(logLevel)) {
-    res
+  app.post('/', function (req, res) {
+    logger.log(req.body)
+    res.sendStatus(201)
+  })
+
+  app.post('/:logLevel', function (req, res) {
+    let { logLevel } = req.params
+    if (!isValidLogLevel(logLevel)) {
+      res
       .status(400)
       .send(`"${logLevel}" is not a valid log level. Expected one of: [${LOG_LEVELS.join(',')}].`)
-    return
-  }
-  log[logLevel](req.body)
-  res.sendStatus(201)
-})
+      return
+    }
+    logger[logLevel](req.body)
+    res.sendStatus(201)
+  })
 
-const server = app.listen('2040', () => { log.info('started') })
+  return app.listen('2040', () => { log.info('started') })
+}
 
 module.exports = server

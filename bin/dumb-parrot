@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../dumb-parrot-logger');
+require('../dumb-parrot-logger')()
