@@ -19,11 +19,16 @@
     "minilog": "^3.1.0"
   },
   "scripts": {
-    "start": "node ./dumb-parrot-logger.js"
+    "start": "node ./dumb-parrot-logger.js",
+    "prepublishOnly": "standard",
+    "pretest": "standard"
   },
   "keywords": [
     "logging",
     "http",
     "api"
-  ]
+  ],
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
 }
