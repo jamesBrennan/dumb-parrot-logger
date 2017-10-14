@@ -3,11 +3,10 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-let log = require('minilog')('dumb-parrot')
+const log = require('minilog')('dumb-parrot')
 require('minilog').enable()
 
 const LOG_LEVELS = [
-  'log',
   'debug',
   'info',
   'warn',
@@ -32,7 +31,7 @@ function server ({logger} = defaults) {
   })
 
   app.post('/', function (req, res) {
-    logger.log(req.body)
+    logger.debug(req.body)
     res.sendStatus(201)
   })
 
@@ -48,7 +47,7 @@ function server ({logger} = defaults) {
     res.sendStatus(201)
   })
 
-  return app.listen('2040', () => { log.info('started') })
+  return app.listen('2040', () => { logger.info('started') })
 }
 
 module.exports = server
