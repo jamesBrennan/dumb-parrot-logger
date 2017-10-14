@@ -88,7 +88,22 @@ describe('dumb parrot', () => {
 
   describe('response to POST /:invalid_log_level', () => {
     it('is 400 - BAD_REQUEST', () => {
-      return post('/urgent', body)(server).expect(400)
+      return post('/urgent', body)(server)
+      .expect(400)
+    })
+  })
+
+  describe('CORS defaults', () => {
+    it('is enabled', () => {
+      return post('/', body)(server)
+        .expect(res =>
+          Object.keys(res.headers).includes('Access-Control-Allow-Origin')
+        )
+    })
+
+    it('allows all origins', () => {
+      return post('/', body)(server)
+      .expect('Access-Control-Allow-Origin', '*')
     })
   })
 })

@@ -18,11 +18,12 @@ function isValidLogLevel (value) {
 }
 
 const defaults = {
-  logger: log
+  logger: log,
+  corsOpts: {}
 }
 
-function server ({logger} = defaults) {
-  app.use(cors())
+function server ({logger, corsOpts} = defaults) {
+  app.use(cors(corsOpts))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({ extended: true }))
 
